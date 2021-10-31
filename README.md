@@ -1,24 +1,24 @@
-#### YoloV5 взят отсюда: https://github.com/ultralytics/yolov5
+#### YoloV5 РІР·СЏС‚ РѕС‚СЃСЋРґР°: https://github.com/ultralytics/yolov5
 
-#### ОС: Windows 10
-#### Датасет поместить в дирректорию с названием data
+#### РћРЎ: Windows 10
+#### Р”Р°С‚Р°СЃРµС‚ РїРѕРјРµСЃС‚РёС‚СЊ РІ РґРёСЂСЂРµРєС‚РѕСЂРёСЋ СЃ РЅР°Р·РІР°РЅРёРµРј data
 ```data\train```
 ```data\test```
 
-#### 1) чистим данные
+#### 1) С‡РёСЃС‚РёРј РґР°РЅРЅС‹Рµ
 ```python data_cornerbox_cleaner.py```
 
-#### 2) приводим данные к yolo-формату
+#### 2) РїСЂРёРІРѕРґРёРј РґР°РЅРЅС‹Рµ Рє yolo-С„РѕСЂРјР°С‚Сѓ
 ```python general_json2yolo.py```
 
-#### 3) создаём тренировачную и валидационную выборки
+#### 3) СЃРѕР·РґР°С‘Рј С‚СЂРµРЅРёСЂРѕРІР°С‡РЅСѓСЋ Рё РІР°Р»РёРґР°С†РёРѕРЅРЅСѓСЋ РІС‹Р±РѕСЂРєРё
 ```python buil_img_pathes.py```
 
-#### 4) запускаем тренировку
+#### 4) Р·Р°РїСѓСЃРєР°РµРј С‚СЂРµРЅРёСЂРѕРІРєСѓ
 ```python yolo\train.py --img 640 --data configs\data.yaml --weights yolov5x.pt --freeze 10 --batch 8 --workers 4 --adam```
 
-#### 5) запускаем инференс
+#### 5) Р·Р°РїСѓСЃРєР°РµРј РёРЅС„РµСЂРµРЅСЃ
 ```python yolo\detect.py --source data\test\images\ --weights yolo\runs\train\exp\weights\best.pt --img 640 --save-txt```
 
-#### 6) переводим в COCO-формат
+#### 6) РїРµСЂРµРІРѕРґРёРј РІ COCO-С„РѕСЂРјР°С‚
 ```python yolo2coco.py```
